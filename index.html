@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='./styles.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo&family=Open+Sans:wght@400;600&family=Pacifico&family=Sonsie+One&family=Source+Code+Pro:ital,wght@1,600&display=swap" rel="stylesheet"> 
+    <script src="https://kit.fontawesome.com/f5525585de.js" crossorigin="anonymous"></script>
+
+    <title>Cars</title>
+</head>
+<body>
+
+    <div class ='navContainer'>
+        <div class='wrapper navFlex'>
+            <h1>TEST</h1>
+            <div class = 'navAndSearch'>
+            <nav>
+                <ul class="mainMenu">
+                    <li><a href="./">HOME</a></li>
+                    <li><a href="./">FEATURES</a></li>
+                    <li><a href="./">PAGES</a></li>
+                    <li><a href="./">BLOG</a></li>
+                    <li><a href="./">CONTACT</a></li>
+                </ul>
+             
+                <!-- Menu for hamburger menu -->
+                <div class="slideMenu">
+                    <ul>
+                        <li><a href="./"></a>HOME</li>
+                        <li><a href="./"></a>FEATURES</li>
+                        <li><a href="./"></a>PAGES</li>
+                        <li><a href="./"></a>BLOG</li>
+                        <li><a href="./"></a>CONTACT</li>
+                        <li><a href="./"></a>Login</li>
+                        <li><button class="searchBtn"><span class="fa-solid fa-magnifying-glass"></span></button></li>
+                    </ul>
+                </div>
+         
+            </nav>
+            <div class = "logInSearch">
+                <button class="logInBtn">Login</button>
+                <button class="searchBtn"><span class="fa-solid fa-magnifying-glass"></span></button>
+            </div>
+        </div>
+
+        <!-- Search bar that opens when magnifying glass is clicked -->
+        <div class = "searchBar">
+            <label for="searchInput" class='sr-only'></label>
+            <input type='text' id='searchInput'>
+            <button><span class="fa-solid fa-magnifying-glass"></span></button>
+        </div>
+
+        <!-- Login menu for wen login is clicked -->
+        <div class = "logIn">
+            <form class="loginForm">
+                <label for="userName" class='sr-only'></label>
+                <input type="text" id="userName" placeholder = "Enter your user name">
+                <label for="password" class='sr-only'></label>
+                <input type="password" id="password" placeholder = "Enter your password">
+                <button>Sign In</button>
+            </form>
+                <p>Not a member? <a href='./'>Sign up</a></p>
+        </div>
+
+        </div>  
+
+    </div>
+
+        <header>
+            <h2>Ferrari 458 Italia</h2>
+            <p>$270,000 · 05-2016 · 0 miles · 419 kw (562hp) </p>
+        </header>
+    
+  
+
+    <main>
+        <section>
+            <div class = 'wrapper'>
+                <form class = "searchForm" id="search">
+                    <select>
+
+                    </select>
+
+                    <select>
+                        
+                    </select>
+
+                    <select>
+                        
+                    </select>
+
+                    <select>
+                        
+                    </select>
+
+                    <select>
+                        
+                    </select>
+
+                    <button>SHOW RESUlTS</button>
+
+                </form>
+            </div>
+        </section>
+
+        <!-- Cars displayed in this section -->
+        <section>
+            <div class ='wrapper'>
+
+                <button></button>
+                <button><span class="fa-solid fa-bars"></span></button>
+                <select>
+                    <option>Chose Price</option>
+                    <option>Price(low-high)</option>
+                    <option>Price(high-low)</option>
+                </select>
+
+                <ul class="displayCars">
+
+
+                </ul>
+        </div>
+
+        </section>
+
+        <section class= "specCount">
+            <div class = 'wrapper'>
+                <ul>
+                    <li>
+                        <div class ='counts'>
+                            <h3 class='yearsIn'></h3>
+                            <p>Years In Business</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class ='counts'>
+                            <h3 class='carsSold'></h3>
+                            <p>Cars Sold</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class ='counts'>
+                            <h3 class='satisfaction'></h3>
+                            <p>Customer Satisfaction</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class ='counts'>
+                            <h3 class='users'></h3>
+                            <p>Registered Users</p>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <div class="wrapper flexLatest">
+                <h2>Latest Car News</h2>
+
+                <ul class = 'latestCars'>
+                    <li>
+                        <div class="latestContainer">
+
+                            <div class="latestImg">
+                                <img src='./' alt=''>
+                            </div>
+
+                            <p>50 years of pony-car style</p>
+
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique deserunt consectetur nesciunt...</p>
+
+                            <div class = 'authorSpecs'>
+                                <div class='authorImg'>
+                                    <img src='./' alt=''>
+                                </div>
+
+                                <p>by John Doe</p>
+                            </div>
+                        </div>
+
+                    </li>
+
+                    <li>
+                        <div class="latestContainer">
+
+                            <div class="latestImg">
+                                <img src='./' alt=''>
+                            </div>
+
+                            <p>Because 600hp is not enough</p>
+
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique deserunt consectetur nesciunt...</p>
+
+                            <div class = 'authorSpecs'>
+                                <div class='authorImg'>
+                                    <img src='./' alt=''>
+                                </div>
+
+                                <p>by John Doe</p>
+                            </div>
+                        </div>
+
+                    </li>
+                </ul>
+
+                <a href='./'>SUBMIT YOUR VEHICLE</a>
+            </div>
+        </section>
+
+        <!-- Section before footer -->
+        <section>
+            <div class='wrapper flexDetails'>
+                <div class='contactDetails'>
+                    <p>Address: 1 Fantasy Road, 10100 Car Haven, USA</p>
+                    <p>Phone: 0800 555 123 456</p>
+                    <p>Email: info@yourcompany.com</p>
+
+                    <div class='socials'>
+                        <ul>
+                            <!-- Social media Icons -->
+                            <li><span class="fa-brands fa-facebook-f"></span></li>
+                            <li><span class="fa-brands fa-twitter"></span></li>
+                            <li><span class="fa-brands fa-google-plus-g"></span></li>
+                            <li><span class="fa-brands fa-linkedin-in"></span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class='hours'>
+                    <h3>Opening Hours</h3>
+                    <p class = "day" id="monday">Monday-----------------9:00 - 18:00</p>
+                    <p class = "day" id="tuesday">Tuesday-----------------9:00 - 18:00</p>
+                    <p class = "day" id='wednesday'>Wednesday-------------9:00 - 18:00</p>
+                    <p class = "day" id="thursday">Thursday---------------9:00 - 18:00</p>
+                    <p class = "day" id="friday">Friday-------------------9:00 - 18:00</p>
+                    <p class = "day" id="saturday">Saturday----------------9:00 - 18:00</p>
+                    <p class = "day" id="sunday">Sunday-------------------------closed</p>
+                </div>
+
+                <div class='subscribe'>
+                    <p>Get the best deals first</p>
+                    <form class='subscribe'>
+                        <label class='sr-only' for="userEmail"></label>
+                        <input type='email' id='userEmail' placeholder="Your email address ..">
+                        <button>SUBSCRIBE</button>
+                    </form>
+                    <p>No worries. We don't spam, promise.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <div class='wrapper'>
+            <p>Copyright 2016 by Car Dealer Inc.</p>
+        </div>
+    </footer>
+
+    <!-- External JS file -->
+    <script src='./app.js'></script>
+</body>
+</html>
