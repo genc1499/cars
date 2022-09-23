@@ -25,7 +25,7 @@ app.getCurrentDay = () =>{
     })
 }
 
-// Meth to display log in modal
+// Method to display log in modal
 app.logIn=()=>{
     let open = false
     const logInPage = document.querySelector('.logInBtn')
@@ -65,34 +65,32 @@ app.qSearch = ()=>{
 // Method to show counters going up
 
 app.displayCount =()=>{
-const headingYear = document.querySelector('.yearsIn');
-const headingSold = document.querySelector('.carsSold');
-const headingHappy = document.querySelector('.satisfaction');
-const headingUsers = document.querySelector('.users');
+    const headingYear = document.querySelector('.yearsIn');
+    const headingSold = document.querySelector('.carsSold');
+    const headingHappy = document.querySelector('.satisfaction');
+    const headingUsers = document.querySelector('.users');
 
-
-
-        if(app.x<=app.years){
+    if(app.x<=app.years){
         headingYear.textContent=`${app.x}`;
-        }
+    }
         
-        if(app.x<=app.sold){
+    if(app.x<=app.sold){
         headingSold.textContent=`${app.x}+`;
-        }
+    }
 
-        if(app.x<=app.satisfaction){
-            headingHappy.textContent=`${app.x}+`;
-        }
+    if(app.x<=app.satisfaction){
+        headingHappy.textContent=`${app.x}%`;
+    }
 
-        if(app.x<=app.users){
-            headingUsers.textContent=`${app.x}+`;
-        }
+    if(app.x<=app.users){
+        headingUsers.textContent=`${app.x}+`;
+    }
 
-        else{
-            clearInterval(app.count);
-        }
+    else{
+        clearInterval(app.count);
+    }
 
-        app.x++;
+    app.x++;
 }
 
 

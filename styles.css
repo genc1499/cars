@@ -35,6 +35,12 @@ h2{
     margin:0;
 }
 
+img{
+    width:100%;
+    display:block;
+    object-fit:contain;
+}
+
 
 .wrapper{
     width:90%;
@@ -193,5 +199,123 @@ header{
     text-align:center;
 }
 
+/* Latest Car New Section------------------------------------------------------------------ */
 
+.flexLatest{
+    display:flex;
+    flex-direction:column;
+}
+
+.flexLatest h2{
+    text-align:center;
+    margin:2% 0;
+    color:#222222;
+    font-size:1.5rem;
+}
+
+.flexLatest ul{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flexLatest li{
+    width:28%;
+    padding:10px;
+}
+
+.latestContainer{
+    display:flex;
+    flex-direction:column;
+    text-align:center;
+}
+
+
+.latestContainer p{
+    line-height:27px;
+    font-size:.8rem;
+    margin:3px 0 0 0;
+}
+
+.latestImg img{
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.latestInfo{
+    /* border:1px #99A1A6 solid; */
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow:0px 9px 17px -2px #99A1A6;
+    position:relative;
+}
+
+.authorSpecs{
+    display:flex;
+    justify-content: center;
+    padding:5px 10px;
+    margin:10px 0;
+}
+
+.authorSpecs::before{
+    display:block;
+    content:'';
+    position:absolute;
+    bottom:63px;
+    width:80%;
+    border-top:.2px solid #99A1A6;
+    margin-bottom:5px;
+}
+
+.authorSpecs p{
+    font-weight:700;
+    color:#99A1A6;
+}
+
+.snip{
+    padding:10px;
+}
+
+.title{
+    font-weight:bold;
+    font-size:.9rem;
+    color:#222222;
+    margin:15px 0 -9px 0;
+}
+.authorImg{
+    width:13%;
+    margin-right:8px;
+}
+
+.authorImg img{
+    border-radius: 50%;
+}
+
+/* Anchor tag styles for submitting vehicles */
+.vehicleSubA{
+    width:300px;
+    padding:15px 15px;
+    border:3px solid #EA3546;
+    color:#EA3546;
+    text-align:center;
+    font-size:1rem;
+    border-radius:5px;
+    font-weight:bold;
+    margin:0 auto;
+    margin-top:5%;
+}
+
+.vehicleSubA span{
+    margin-left:5px;
+    transition:.3s linear;
+}
+
+.vehicleSubA:hover, .vehicleSubA:focus{
+    background-color:#EA3546;
+    color:white;
+}
+
+.vehicleSubA:hover span, .vehicleSubA:focus span{
+  transform: rotate(-90deg);
+}
 
