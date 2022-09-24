@@ -50,7 +50,7 @@
 
         <!-- Search bar that opens when magnifying glass is clicked -->
         <div class = "searchBar">
-            <label for="searchInput" class='sr-only'></label>
+            <label for="searchInput" class='sr-only'>search</label>
             <input type='text' id='searchInput'>
             <button><span class="fa-solid fa-magnifying-glass"></span></button><button class = "closeSearch"><span class="fa-solid fa-xmark"></span></button>
         </div>
@@ -58,13 +58,21 @@
         <!-- Login menu for wen login is clicked -->
         <div class = "logIn">
             <form class="loginForm">
-                <label for="userName" class='sr-only'></label>
-                <input type="text" id="userName" placeholder = "Enter your user name">
-                <label for="password" class='sr-only'></label>
-                <input type="password" id="password" placeholder = "Enter your password">
+                <h2>Login</h2>
+                <label for="userName" class='sr-only'>email</label>
+                <input type="text" id="userName" placeholder = "email">
+                <label for="password" class='sr-only'>password</label>
+                <input type="password" id="password" placeholder = "password">
                 <button>Sign In</button>
+                <button class='create'>Creat an account</button>
             </form>
-                <p>Not a member? <a href='./'>Sign up</a></p>
+            <p class="partner">or sign in with</p>
+            <div class="loginSocials">
+                <button><span class="fa-brands fa-google"></span> Google</button>
+                <button><span class="fa-brands fa-twitter"></span> Twitter</button>
+            </div>
+
+               
         </div>
 
         </div>  
@@ -79,27 +87,50 @@
   
 
     <main>
-        <section>
+        <section class = 'searchCarsSection' id='carSearchSection'>
             <div class = 'wrapper'>
-                <form class = "searchForm" id="search">
-                    <select>
+                <form class = "searchCarsForm" id="searchCars">
 
+                    <select id="make">
+                        <option>Chose Make</option>
+                        <option value='bmw'>BMW</option>
+                        <option value='mercedes'>Mercedes</option>
+                        <option value='rangerover'>Rangerover</option>
+                        <option value='subaru'>Subaru</option>
+                        <option value='volkswagon'>Volkswagon</option>
+                        <option value='lexus'>Lexus</option>
+                        <option value='chevrolet'>Chevrolet</option>
+                        <option value='audi'>Audi</option>
+                        <option vlaue='fiat'>Fiat</option>
                     </select>
 
-                    <select>
-                        
+                    <select id='registration'>
+                        <option>Chose Year</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>    
                     </select>
 
-                    <select>
-                        
+                    <select id = "maxPrice">
+                        <option>Max Price($)</option>
+                        <option value="">10000</option>
+                        <option value="">20000</option>
+                        <option value="">30000</option>
+                        <option value="">40000</option>
+                        <option value="">50000</option>
                     </select>
 
-                    <select>
-                        
-                    </select>
-
-                    <select>
-                        
+                    <select id = 'mileage'>
+                        <option>Max Milages (miles)</option>
+                        <option value="0">0</option>
+                        <option value="10000">10000</option>
+                        <option value="20000">20000</option>
+                        <option value="30000">30000</option>
+                        <option value="40000">40000</option>
+                        <option value="50000">50000</option>
                     </select>
 
                     <button>SHOW RESUlTS</button>
@@ -114,13 +145,13 @@
 
                 <button></button>
                 <button><span class="fa-solid fa-bars"></span></button>
-                <select>
-                    <option>Chose Price</option>
-                    <option>Price(low-high)</option>
-                    <option>Price(high-low)</option>
+                <select id = "switchPrice">
+                    <!-- <option value='default'>Chose Price</option> -->
+                    <option value="low">Price(low-high)</option>
+                    <option value ="high">Price(high-low)</option>
                 </select>
 
-                <ul class="displayCars">
+                <ul class="displayCars" id='displayCars'>
 
 
                 </ul>
@@ -282,3 +313,4 @@
     <script src='./app.js'></script>
 </body>
 </html>
+

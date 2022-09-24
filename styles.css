@@ -42,6 +42,10 @@ img{
     object-fit:contain;
 }
 
+::placeholder{
+    font-size:.7rem;
+}
+
 
 .wrapper{
     width:90%;
@@ -149,24 +153,87 @@ img{
     left:40%;
     visibility:hidden;
     z-index:10;
-    background-color: rgb(218, 213, 213);
+    background-color:#222222;
     padding: 10px;
     border-radius: 18px;
-    width: 300px;
-    height: 400px;
+    width: 350px;
+    height: 350px;
     display:flex;
     flex-direction: column;
     justify-content: space-evenly;
+    text-align: center;
+    
 }
 
 .logIn form{
     display:flex;
     flex-direction: column;
-    justify-content: space-evenly;
-
+    justify-content: space-around;
+    width:100%;
+    height:75%;
 }
 
+.logIn input{
+    border-radius:5px;
+}
+
+.logIn button{
+    background-color:#EA3546;
+    color:white;
+    border:none;
+    border-radius: 5px;
+    padding:5px 0;
+}
+
+.loginSocials button{
+    background-color:#00acee;
+    width:33%;
+    height:30px;
+}
+
+.loginSocials button:first-of-type{
+   background-color:#F4B400;
+}
+
+.logIn h2,p{
+    color:#99A1A6;
+}
+
+.loginSocials{
+    padding:15px;
+    font-size: .7rem;
+}
+
+button.create{
+    font-size:.7rem;
+    text-align: left;
+    margin:0;
+    border:none;
+    background-color:ivory;
+    color:black;
+    padding:5px 5px;
+    width:45%;
+    text-align:center
+}
  
+.partner::before{
+    display:block;
+    content:'';
+    position:absolute;
+    width:25%;
+    bottom:98px;
+    border-top:.5px solid white;
+}
+
+.partner::after{
+    display:block;
+    content:'';
+    position:absolute;
+    width:25%;
+    bottom:98px;
+    right:16px;
+    border-top:.5px solid white;
+}
 
 
 /* HERO IMAGE and header styles-------------------------------------------------------------*/
@@ -180,8 +247,111 @@ header{
     height:50vh;
 }
 
+/* Search Form Section --------------------------------------------------------------------*/
+.searchCarsForm{
+    display:flex;
+    flex-wrap:wrap;
+    background-color:#EAEAEA;
+    padding:20px;
+    justify-content: space-between;
+    margin:5% 0;
+}
 
-/* Counter Section ------------------------------------------------------------------------*/
+.searchCarsForm select{
+    width:48%;
+    background-color: white;
+    padding:10px;
+    margin:2% 0;
+    border:1px solid #99A1A6;
+    color:#99A1A6;
+    font-size:.7rem;
+    border-radius:2px;
+}
+
+.searchCarsForm button{
+    width:48%;
+    border-radius:5px;
+    text-align:center;
+    color:white;
+    background-color:#EA3546;
+    font-weight: bolder;
+    font-size:.8rem;
+    padding:10px 5px;
+    border:none;
+}
+
+.searchCarsForm option{
+    padding:5px;
+    font-size:.8rem;
+    color:#222222;
+}
+
+/* Display Cars Section----------------------------------------------------------------------- */
+
+.displayCars{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+
+}
+
+.displayCars li{
+    width:30%;
+    box-shadow: 0px 5px 4px -1px #99A1A6;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-bottom:2%;
+    position:relative;
+}
+
+.displayCars img{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  
+}
+
+.displayCars h3{
+    position:absolute;
+    bottom: 179px;
+    padding: 0 17px;
+    color:white;
+    font-size:.9rem;
+    font-weight: bolder;
+}
+
+.icons{
+    position:absolute;
+    bottom: 197px;
+    right: 17px;        
+}
+.icons button{
+    color:white;
+    background-color:rgb(255, 255, 255,.5);
+    border:none;
+    border-radius:5px;
+    padding:5px;
+    font-size:.7rem;
+    text-align:center;
+}
+
+.carInfo{
+    padding:15px;
+}
+
+.carInfo p{
+    font-size:.8rem;
+    color:#99A1A6;
+}
+
+.carInfo span{
+    margin-right:3%;
+}
+
+.carInfo h4{
+    margin-top:0;
+}
+
+/* Counter Section ----------------------------------------------------------------------------*/
 
 .specCount{
     background-color:#EAEAEA;
