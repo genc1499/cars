@@ -36,14 +36,15 @@
                         <li><a href="./"></a>BLOG</li>
                         <li><a href="./"></a>CONTACT</li>
                         <li><a href="./"></a>Login</li>
-                        <li><button class="searchBtn"><span class="fa-solid fa-magnifying-glass"></span></button></li>
+                        <!-- <li><button class="searchBtn"><span class="fa-solid fa-magnifying-glass"></span></button></li> -->
                     </ul>
                 </div>
          
             </nav>
             <div class = "logInSearch">
                 <button class="logInBtn">Login</button>
-                <button class="searchBtn"><span class="fa-solid fa-magnifying-glass"></span></button>
+                <button class="searchBtn"><span class="fa-solid fa-magnifying-glass">
+                </button>
             </div>
         </div>
 
@@ -51,7 +52,7 @@
         <div class = "searchBar">
             <label for="searchInput" class='sr-only'></label>
             <input type='text' id='searchInput'>
-            <button><span class="fa-solid fa-magnifying-glass"></span></button>
+            <button><span class="fa-solid fa-magnifying-glass"></span></button><button class = "closeSearch"><span class="fa-solid fa-xmark"></span></button>
         </div>
 
         <!-- Login menu for wen login is clicked -->
@@ -162,7 +163,7 @@
             </div>
         </section>
 
-        <section>
+        <section class="latest" id='latest'>
             <div class="wrapper flexLatest">
                 <h2>Latest Car News</h2>
 
@@ -225,9 +226,10 @@
         </section>
 
         <!-- Section before footer -->
-        <section>
+        <section class="contact" id="contact">
             <div class='wrapper flexDetails'>
                 <div class='contactDetails'>
+                    <h3>Car Dealer Inc.</h3>
                     <p>Address: 1 Fantasy Road, 10100 Car Haven, USA</p>
                     <p>Phone: 0800 555 123 456</p>
                     <p>Email: info@yourcompany.com</p>
@@ -245,17 +247,17 @@
 
                 <div class='hours'>
                     <h3>Opening Hours</h3>
-                    <p class = "day" id="monday">Monday-----------------9:00 - 18:00</p>
-                    <p class = "day" id="tuesday">Tuesday-----------------9:00 - 18:00</p>
-                    <p class = "day" id='wednesday'>Wednesday-------------9:00 - 18:00</p>
-                    <p class = "day" id="thursday">Thursday---------------9:00 - 18:00</p>
-                    <p class = "day" id="friday">Friday-------------------9:00 - 18:00</p>
-                    <p class = "day" id="saturday">Saturday----------------9:00 - 18:00</p>
-                    <p class = "day" id="sunday">Sunday-------------------------closed</p>
+                    <p class = "day" id="monday">Monday<span class="dots">---------------------------</span>9:00 - 18:00</p>
+                    <p class = "day" id="tuesday">Tuesday<span class="dots">---------------------------</span>9:00 - 18:00</p>
+                    <p class = "day" id='wednesday'>Wednesday<span class="dots">----------------------</span>9:00 - 18:00</p>
+                    <p class = "day" id="thursday">Thursday<span class="dots">-------------------------</span>9:00 - 18:00</p>
+                    <p class = "day" id="friday">Friday<span class="dots">------------------------------</span>9:00 - 18:00</p>
+                    <p class = "day" id="saturday">Saturday<span class="dots">--------------------------</span>9:00 - 18:00</p>
+                    <p class = "day" id="sunday">Sunday<span class="dots">-----------------------------------</span>closed</p>
                 </div>
 
                 <div class='subscribe'>
-                    <p>Get the best deals first</p>
+                    <h3>Get the best deals first</h3>
                     <form class='subscribe'>
                         <label class='sr-only' for="userEmail"></label>
                         <input type='email' id='userEmail' placeholder="Your email address ..">
@@ -272,7 +274,7 @@
 
     <footer>
         <div class='wrapper'>
-            <p>Copyright 2016 by Car Dealer Inc.</p>
+            <p>Copyright <span>©</span> 2016 by Car Dealer Inc.</p>
         </div>
     </footer>
 

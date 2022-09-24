@@ -20,7 +20,7 @@ app.getCurrentDay = () =>{
     let days = document.querySelectorAll('.day');
     days.forEach(item=>{
         if (item.id===date){
-            item.style.color='red';
+            item.style.color='#EA3546';
         }
     })
 }

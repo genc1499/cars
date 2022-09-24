@@ -13,6 +13,7 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
 html{
     font-size:125%;
     font-family: 'Open Sans', sans-serif;
+    letter-spacing: .25px;
 }
 
 ul{
@@ -48,14 +49,26 @@ img{
     margin:0 auto;
 }
 
-
-
-
-
 .searchBar{
-    position:absolute;
-    visibility:hidden;
-    z-index:10;
+    position: absolute;
+    visibility: hidden;
+    z-index: 10;
+    right: -2px;
+    top: 69px;
+}
+
+.searchBar input{
+    border-top-left-radius:5px;
+    border-bottom-left-radius:5px;
+    position:relative;
+    right:-6px;
+}
+
+.searchBar button{
+    background-color:#EA3546;
+    color:white;
+    border:1px solid #333232;
+    padding:3px 5px;
 }
 
 .slideMenu{
@@ -118,7 +131,7 @@ img{
     display: block;
     border-left: .1px solid white;
     position: absolute;
-    left: 53px;
+    left: 60px;
     top: -24px;
     height: 72px;
 }
@@ -200,7 +213,9 @@ header{
 }
 
 /* Latest Car New Section------------------------------------------------------------------ */
-
+.latest{
+    padding:70px;
+}
 .flexLatest{
     display:flex;
     flex-direction:column;
@@ -208,9 +223,9 @@ header{
 
 .flexLatest h2{
     text-align:center;
-    margin:2% 0;
     color:#222222;
     font-size:1.5rem;
+    margin-bottom:2%;
 }
 
 .flexLatest ul{
@@ -220,7 +235,7 @@ header{
 }
 
 .flexLatest li{
-    width:28%;
+    width:30%;
     padding:10px;
 }
 
@@ -243,7 +258,6 @@ header{
 }
 
 .latestInfo{
-    /* border:1px #99A1A6 solid; */
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     box-shadow:0px 9px 17px -2px #99A1A6;
@@ -303,6 +317,7 @@ header{
     font-weight:bold;
     margin:0 auto;
     margin-top:5%;
+    transition:.3s linear;
 }
 
 .vehicleSubA span{
@@ -319,3 +334,89 @@ header{
   transform: rotate(-90deg);
 }
 
+/* Contact Section -------------------------------------------------------------------------*/
+
+.contact{
+    background-color:#333232;
+    color:white;
+    font-size:.8rem;
+    padding:20px 0;
+}
+
+.flexDetails{
+    display:flex;
+    justify-content: space-between;
+}
+
+.contactDetails{
+    display:flex;
+    flex-direction: column;
+}
+
+.contactDetails p{
+    margin:0;
+    line-height:24px;
+}
+
+.socials{
+    margin-top:5%; 
+}
+.socials ul{
+    display:flex;
+}
+
+.socials li{
+    background-color: rgb(75, 74, 74);
+    padding:15px;
+    margin-right:5px;
+    width:15%;
+    text-align:center;
+    transition:.3s linear;
+}
+
+.socials li:hover, .socials li:focus{
+    scale:1.1;
+}
+
+.hours p{
+    margin-bottom:25px;
+}
+
+.dots{
+    color:#222222;
+}
+
+.subscribe input{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.subscribe button{
+    color:white;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color:#EA3546;
+    border:none;
+    padding: 3px 5px;
+    position:relative;
+    left:-5px;
+}
+
+/* Footer--------------------------------------------------------------------------------- */
+
+footer{
+    background-color:#222222;
+    padding:25px 0;
+}
+
+footer p{
+    color:#99A1A6;
+    margin:0;
+    font-size:.8rem;
+}
+
+footer span {
+    font-size:.6rem;
+    position:relative;
+    top:-1px;
+}
