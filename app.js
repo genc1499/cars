@@ -103,7 +103,7 @@ app.mobileSearch =()=>{
     // const mobileSearch = document.querySelector('.mobileSearch');
     let isOpen=false
     mobileLogin.addEventListener('click',(e)=>{
-        console.log(e);
+        e.preventDefault();
         const openSearch = document.querySelector('.logIn')
         if(!isOpen){
             openSearch.style.visibility='visible';
@@ -137,6 +137,8 @@ app.showSlideOutMenu = ()=>{
             const allClicks= document.querySelectorAll('.slideMenu li');
             allClicks.forEach(item=>{
                 item.addEventListener('click',(e)=>{
+
+                    // Anhy clicks will result in the menu closing 
                     if(e.isTrusted){
                         middle.classList.remove('sr-only');
                         slide.style.visibility='hidden';
@@ -360,9 +362,19 @@ app.logIn=()=>{
 
     logInPage.addEventListener ('click',()=>{
         const logInModal = document.querySelector('.logIn')
+        const closeLogIn = document.querySelector('#closeLogin')
         if(!open){
             logInModal.style.visibility='visible';
-            open =true
+            open =true;
+
+            // Close login modal
+            closeLogIn.addEventListener('click',(e)=>{
+                e.preventDefault(e);
+                    console.log(e);
+                    logInModal.style.visibility='hidden';
+                    open=false;
+                
+            })
         }
 
         else{

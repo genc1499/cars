@@ -188,12 +188,12 @@ img{
     height:50px;
     position:absolute;
     /* right: 123px; */
-    right:100px;
+    right:45px;
     top: 25px;
     justify-content: space-between;
     z-index:10;
-    transition:.3s linear
-    /* visibility: hidden; */
+    transition:.3s linear;
+    visibility: hidden;
 }
 
 .burger:focus.burger div, .burger:hover.burger div{
@@ -225,6 +225,7 @@ img{
     flex-direction:column;
     align-items:center;
     justify-content:space-between;
+    margin:0 auto;
 }
 .slideMenu li{
     margin:5%;
@@ -232,7 +233,7 @@ img{
     color:white;
 }
 .open{    
-    width:33vw;
+    width:100vw;
     height:100vh;
 }
 
@@ -248,13 +249,18 @@ img{
     border:none;
     color:white;
     background-color: transparent;
+    transition:.3s linear;
+}
+
+.mobileLogin:focus, .mobileLogin:hover{
+    scale:1.2;
 }
 
 /* Log in Modal Styling and form styling */
 
 .logIn{
     position:absolute;
-    left:40%;
+    right:0;
     visibility:hidden;
     z-index:10;
     background-color:#222222;
@@ -266,7 +272,7 @@ img{
     flex-direction: column;
     justify-content: space-evenly;
     text-align: center;
-    
+    top: 65px;   
 }
 
 .logIn form{
@@ -287,6 +293,20 @@ img{
     border:none;
     border-radius: 5px;
     padding:5px 0;
+}
+
+button.closeButton{
+    align-self: flex-end;
+    width:40px;
+    border:none;
+    border-radius:5px;
+    padding:5px;
+    background-color: transparent;
+    color:white;
+}
+
+.closeButton:focus, .closeButton:hover{
+    color:#EA3546;
 }
 
 .loginSocials button{
@@ -338,7 +358,6 @@ button.create{
     right:16px;
     border-top:.5px solid white;
 }
-
 
 /* HERO IMAGE and header styles-------------------------------------------------------------*/
 
@@ -393,9 +412,11 @@ header{
     background-color:#EA3546;
     font-weight: bolder;
     font-size:.8rem;
-    padding:10px 5px;
+    padding:5px 5px;
     border:none;
     transition:.3s linear;
+    height: 40px;
+    margin-top: 21px;
 }
 
 .searchCarsForm button:focus, .searchCarsForm button:hover{
@@ -408,6 +429,10 @@ header{
     padding:5px;
     font-size:.8rem;
     color:#222222;
+}
+
+select.firstMake{
+    background-color:#EAEAEA;
 }
 
 /* Display Cars Section----------------------------------------------------------------------- */
@@ -707,6 +732,7 @@ header{
 .contactDetails p{
     margin:0;
     line-height:24px;
+    color:white;
 }
 
 .socials{
@@ -731,6 +757,7 @@ header{
 
 .hours p{
     margin-bottom:25px;
+    color:white;
 }
 
 .dots{
@@ -774,3 +801,119 @@ footer span {
 
 /* MEDIA QUERIES--------------------------------------------------------------------------- */
 
+/* Latest Section */
+@media screen and (max-width: 1200px){
+    .latestCars li{
+        width:50%;
+    }
+}
+
+@media screen and (max-width: 957px){
+    /* Header */
+    .desktopMenu, .logInSearch{
+        position:absolute;
+        top:100px;
+        visibility:hidden;
+    }
+    .burger{
+        visibility: visible;
+    }
+    /* Display cars section */
+    .displayCars li{
+        width:48%;
+    }
+
+}
+
+@media screen and (max-width: 765px){
+    /* Form section */
+    .searchCarsForm{
+        flex-direction: column;
+    }
+    .searchCarsForm select{
+        width:100%;
+    }
+    .searchCarsForm button{
+        width:100%;
+    }
+    /* Latest Cars section */
+    .latestCars {
+        flex-direction: column;
+    }
+    .latestCars li{
+        width:100%;
+    }
+
+    .authorSpecs::before{
+        bottom: 90px;
+    }
+
+    .latestContainer p{
+        margin:20px 0 0 0;
+    }
+    /* Spec count section */
+    .specCount ul{
+        flex-wrap:wrap;
+    }
+    .specCount li{
+        width:50%;
+    }
+
+}
+
+@media screen and (max-width: 600px){
+    /* Display cars section */
+    .wrapper{
+        width:95%;
+    }
+    .displayCars{
+        flex-direction: column;
+    }
+    .displayCars li{
+        width:100%;
+    }
+    /* Latest cars section */
+    .authorSpecs::before{
+        bottom: 70px;
+    }
+
+    .latestContainer p{
+        margin:10px 0 0 0;
+    }
+
+    .latest{
+        padding:25px;
+    }
+
+    /* Search bar in slide out menu */
+    .qForm button{
+        width:100%;
+        border-radius:5px;
+        left:0
+    }
+    .qForm input{
+        width:100%;
+        border-radius:5px;
+    }
+}
+
+@media screen and (max-width: 439px){
+    /* Header Container */
+    .headerContainer p{
+        font-size:.7rem;
+    }
+    .headerContainer h2{
+        font-size:2rem;
+    }
+    /* Latest Cars Section */
+    .specCount ul{
+        flex-direction:column;
+        justify-content: center;
+    }
+    .specCount li{
+        width:100%;
+    }
+    .specCount{
+        height:70vh;
+    }
+}

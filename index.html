@@ -18,23 +18,20 @@
         <div class='wrapper navFlex'>
             <h1>TEST</h1>
             <div class = 'navAndSearch'>
-            <nav>
-                <ul class="mainMenu">
-                    <li><a href="#carSearchSection">HOME</a></li>
-                    <li><a href="#allCars">FEATURES</a></li>
-                    <li><a href="#specCount">PAGES</a></li>
-                    <li><a href="#latest/">BLOG</a></li>
-                    <li><a href="#contact">CONTACT</a></li>
-                </ul>
-             
-                <!-- Menu for hamburger menu -->
-                <div class='burger'>
-                    <div class='top'></div>
-                    <div class='middle'></div>
-                    <div class='bottom'></div>
-                 </div>
-     
-             
+
+                <!-- Desktop nav -->
+                <nav class= "desktopMenu">
+                    <ul class="mainMenu">
+                        <li><a href="#carSearchSection">HOME</a></li>
+                        <li><a href="#allCars">FEATURES</a></li>
+                        <li><a href="#specCount">PAGES</a></li>
+                        <li><a href="#latest/">BLOG</a></li>
+                        <li><a href="#contact">CONTACT</a></li>
+                    </ul>     
+                </nav>
+
+                <!-- Mobile nav -->
+                <nav>
                     <ul class ="slideMenu">
                         <li><a href="#carSearchSection">HOME</a></li>
                         <li><a href="#allCars">FEATURES</a></li>
@@ -43,55 +40,58 @@
                         <li><a href="#contact">CONTACT</a></li>
                         <li><button class= "mobileLogin">Login</button></li>
                         <li class='subscribe'> 
-                            <form id='mobileQForm'>
+                            <form id='mobileQForm' class="qForm">
                                 <label class='sr-only' for="mobileQ">search</label>
                                 <input type='search' id='mobileQ' placeholder="">
                                 <button type="submit">Search</button>
                             </form>
                         </li>
                     </ul>
-             
-         
-            </nav>
-            <div class = "logInSearch">
-                <button class="logInBtn">Login</button>
-                <button class="searchBtn"><span class="fa-solid fa-magnifying-glass">
-                </button>
+                </nav>
+
+               <!-- Menu for hamburger menu -->
+                <div class='burger'>
+                    <div class='top'></div>
+                    <div class='middle'></div>
+                    <div class='bottom'></div>
+                </div>
+
+                <div class = "logInSearch">
+                    <button class="logInBtn">Login</button>
+                    <button class="searchBtn"><span class="fa-solid fa-magnifying-glass">
+                    </button>
+                </div>
+
+            <!-- Search bar that opens when magnifying glass is clicked -->
+                <div class = "searchBar">
+                    <form id="pageSearch">
+                        <label for="searchInput" class='sr-only'>search</label>
+                        <input type='search' id='searchInput'>
+                        <button type="submit"><span class="fa-solid fa-magnifying-glass"></span></button>
+                    </form>
+                </div>
+
+            <!-- Login menu for wen login is clicked -->
+                <div class = "logIn">
+                    <form class="loginForm">
+                        <button id="closeLogin" class='closeButton'><span class="fa-solid fa-x"></span></button>
+                        <h2>Login</h2>
+                        <label for="userName" class='sr-only'>email</label>
+                        <input type="text" id="userName" placeholder = "email">
+                        <label for="password" class='sr-only'>password</label>
+                        <input type="password" id="password" placeholder = "password">
+                        <button>Sign In</button>
+                        <button class='create'>Creat an account</button>
+                    </form>
+                    <p class="partner">or sign in with</p>
+                    <div class="loginSocials">
+                        <button><span class="fa-brands fa-google"></span> Google</button>
+                        <button><span class="fa-brands fa-twitter"></span> Twitter</button>
+                    </div>     
+                </div>
+            </div>  
             </div>
         </div>
-
-        <!-- Search bar that opens when magnifying glass is clicked -->
-        <div class = "searchBar">
-            <form id="pageSearch">
-                <label for="searchInput" class='sr-only'>search</label>
-                <input type='search' id='searchInput'>
-                <button type="submit"><span class="fa-solid fa-magnifying-glass"></span></button>
-            </form>
-        </div>
-
-        <!-- Login menu for wen login is clicked -->
-        <div class = "logIn">
-            <form class="loginForm">
-                <h2>Login</h2>
-                <label for="userName" class='sr-only'>email</label>
-                <input type="text" id="userName" placeholder = "email">
-                <label for="password" class='sr-only'>password</label>
-                <input type="password" id="password" placeholder = "password">
-                <button>Sign In</button>
-                <button class='create'>Creat an account</button>
-            </form>
-            <p class="partner">or sign in with</p>
-            <div class="loginSocials">
-                <button><span class="fa-brands fa-google"></span> Google</button>
-                <button><span class="fa-brands fa-twitter"></span> Twitter</button>
-            </div>
-
-               
-        </div>
-
-        </div>  
-
-    </div>
 
     <header>
         <div class='headerContainer wrapper'>
@@ -117,6 +117,10 @@
                         <option value='chevrolet'>Chevrolet</option>
                         <option value='audi'>Audi</option>
                         <option value='fiat'>Fiat</option>
+                    </select>
+
+                    <select id='firstMake' class="firstMake">
+                        <option>Select make first</option>
                     </select>
 
                     <select id='year'>
