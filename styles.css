@@ -554,6 +554,13 @@ select.firstMake{
     background-color:transparent;
     border:none;
     margin-top:2px;
+    transition:.3s linear;
+    border-radius:3px;
+    padding:3px;
+}
+
+.pages button:focus, .pages button:hover{
+    background-color:#99A1A6;
 }
 
 /* Counter Section ----------------------------------------------------------------------------*/

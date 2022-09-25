@@ -33,12 +33,12 @@
                 <!-- Mobile nav -->
                 <nav>
                     <ul class ="slideMenu">
-                        <li><a href="#carSearchSection">HOME</a></li>
-                        <li><a href="#allCars">FEATURES</a></li>
-                        <li><a href="#specCount">PAGES</a></li>
-                        <li><a href="#latest">BLOG</a></li>
-                        <li><a href="#contact">CONTACT</a></li>
-                        <li><button class= "mobileLogin">Login</button></li>
+                        <li class="slideClose"><a href="#carSearchSection">HOME</a></li>
+                        <li class="slideClose"><a href="#allCars">FEATURES</a></li>
+                        <li class="slideClose"><a href="#specCount">PAGES</a></li>
+                        <li class="slideClose"><a href="#latest">BLOG</a></li>
+                        <li class="slideClose"><a href="#contact">CONTACT</a></li>
+                        <li class="slideClose"><button class= "mobileLogin">Login</button></li>
                         <li class='subscribe'> 
                             <form id='mobileQForm' class="qForm">
                                 <label class='sr-only' for="mobileQ">search</label>
@@ -106,7 +106,7 @@
                 <form class = "searchCarsForm" id="searchCars">
 
                     <select id="make">
-                        <option>Chose Make</option>
+                        <option>Select Make</option>
                         <option value="all">All</option>
                         <option value='bmw'>BMW</option>
                         <option value='mercedes'>Mercedes</option>
@@ -118,13 +118,13 @@
                         <option value='audi'>Audi</option>
                         <option value='fiat'>Fiat</option>
                     </select>
-
+                   
                     <select id='firstMake' class="firstMake">
                         <option>Select make first</option>
                     </select>
 
                     <select id='year'>
-                        <option>Chose Year</option>
+                        <option>Registration</option>
                         <option value="2016">2016</option>
                         <option value="2017">2017</option>
                         <option value="2018">2018</option>
@@ -134,7 +134,7 @@
                     </select>
 
                     <select id = "maxPrice">
-                        <option>Max Price($)</option>
+                        <option>Max Price</option>
                         <option value="30000">10000</option>
                         <option value="40000">20000</option>
                         <option value="50000">30000</option>
@@ -144,7 +144,7 @@
                     </select>
 
                     <select id = 'miles'>
-                        <option>Max Milages (miles)</option>
+                        <option>Max Milage</option>
                         <option value="0">0</option>
                         <option value="10000">10000</option>
                         <option value="20000">20000</option>

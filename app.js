@@ -9,6 +9,12 @@ app.init=()=>{
     app.qSearch();
     app.listOfCars=document.getElementById('displayCars');
     app.listOfPages=document.getElementById('pages');
+    // Query elements for slide out menu
+        app.burger = document.querySelector('.burger');
+        app.topp = document.querySelector('.top');
+        app.middle = document.querySelector('.middle');
+        app.bottom = document.querySelector('.bottom');
+        app.slide = document.querySelector('.slideMenu');
     app.paginate();
     // h3 that will be appeneded to counter section 
         app.x=0;
@@ -76,6 +82,12 @@ app.searchPage=()=>{
     })
     userSearchMobile.addEventListener('submit',(e)=>{
         e.preventDefault();
+        app.middle.classList.remove('sr-only');
+        app.slide.style.visibility='hidden';
+        app.slide.classList.remove('open');
+        app.topp.classList.remove('atOpenTop');
+        app.bottom.classList.remove('atBottom');
+        app.isOpen=false;
         app.q = e.target.childNodes[3].value;
         !app.q?alert("Enter a search term"):app.findQuery(`${app.mobileID}`);
     })
@@ -119,43 +131,38 @@ app.mobileSearch =()=>{
 // Method to display slide out menu
 
 app.showSlideOutMenu = ()=>{
-    const burger = document.querySelector('.burger');
-    const topp = document.querySelector('.top');
-    const middle = document.querySelector('.middle');
-    const bottom = document.querySelector('.bottom');
-    const slide = document.querySelector('.slideMenu')
 
-
-    burger.addEventListener('click',()=>{
+    app.burger.addEventListener('click',()=>{
         if(!app.isOpen){
-            middle.classList.add('sr-only');
-            slide.style.visibility='visible';
-            slide.classList.add('open');
-            topp.classList.add('atOpenTop');
-            bottom.classList.add('atBottom');
+            app.middle.classList.add('sr-only');
+            app.slide.style.visibility='visible';
+            app.slide.classList.add('open');
+            app.topp.classList.add('atOpenTop');
+            app.bottom.classList.add('atBottom');
             app.isOpen=true;
             const allClicks= document.querySelectorAll('.slideMenu li');
             allClicks.forEach(item=>{
                 item.addEventListener('click',(e)=>{
-
-                    // Anhy clicks will result in the menu closing 
-                    if(e.isTrusted){
-                        middle.classList.remove('sr-only');
-                        slide.style.visibility='hidden';
-                        slide.classList.remove('open');
-                        topp.classList.remove('atOpenTop');
-                        bottom.classList.remove('atBottom');
+                    console.log(e);
+    
+                    // Any clicks will result in the menu closing 
+                    if(e.isTrusted && e.target.parentNode.className==='slideClose'){
+                        app.middle.classList.remove('sr-only');
+                        app.slide.style.visibility='hidden';
+                        app.slide.classList.remove('open');
+                        app.topp.classList.remove('atOpenTop');
+                        app.bottom.classList.remove('atBottom');
                         app.isOpen=false;
                     }
                 })
             })
         }
         else{
-            middle.classList.remove('sr-only');
-            slide.style.visibility='hidden';
-            slide.classList.remove('open');
-            topp.classList.remove('atOpenTop');
-            bottom.classList.remove('atBottom');
+            app.middle.classList.remove('sr-only');
+            app.slide.style.visibility='hidden';
+            app.slide.classList.remove('open');
+            app.topp.classList.remove('atOpenTop');
+            app.bottom.classList.remove('atBottom');
             app.isOpen=false;
         }
     })
