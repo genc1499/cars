@@ -226,7 +226,7 @@ img{
     color:white;
 }
 .open{    
-    width:50vw;
+    width:33vw;
     height:100vh;
 }
 
@@ -405,6 +405,31 @@ header{
 }
 
 /* Display Cars Section----------------------------------------------------------------------- */
+.allCarsSection{
+    display:flex;
+    flex-direction:column;
+}
+.certainSelect{
+    display:flex;
+    align-self: flex-end;
+    margin-bottom:5px;
+}
+.certainSelect select{
+    background-color: white;
+    padding:5px;
+    font-size:.7rem;
+    border-radius:3px;
+    border:1px solid #99A1A6;
+}
+
+.certainSelect button{
+    background-color:#EAEAEA;
+    padding:5px;
+    font-size:.6rem;
+    border-radius:3px;
+    border:1px solid #99A1A6;
+    margin-right:5px;
+}
 
 .displayCars{
     display:flex;
@@ -487,6 +512,17 @@ header{
     text-align: center;
     position: relative;
     top: -16px;
+}
+
+.pages{
+    text-align: center;
+    margin-bottom:5px;
+}
+
+.pages button{
+    background-color:transparent;
+    border:none;
+    margin-top:2px;
 }
 
 /* Counter Section ----------------------------------------------------------------------------*/
