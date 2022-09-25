@@ -3,6 +3,7 @@
 const app = {}
 
 app.init=()=>{
+    app.carZ=[...app.cars];
     app.getCurrentDay();
     app.logIn();
     app.qSearch();
@@ -29,7 +30,7 @@ app.init=()=>{
         app.showSlideOutMenu();
         app.isOpen=false;
     app.mobileSearch();
-      
+    app.searchPage(); 
 }
 
 // Array of objects for each car
@@ -49,7 +50,7 @@ app.cars = [
 
     {make:'jeep', type:'Jeep Wrangler', price:50000, miles:0, hp:'200 kw (260hp)', src:'./assets/jeep.jpg', reg:'12-2016', year:2016, sold:false},
 
-    {make:'rangrover', type:'Range Rover Sport', price:20000, miles:50000, hp:'230 kw (280hp)',src:'./assets/landrover.jpg', reg:'01-2017', year:2017, sold:false},
+    {make:'rangerover', type:'Range Rover Sport', price:20000, miles:50000, hp:'230 kw (280hp)',src:'./assets/landrover.jpg', reg:'01-2017', year:2017, sold:false},
 
     {make:'mercedes', type:'Mercedes-Benz AMG',price:60000, miles:10000, hp:'210 kw (260hp)', src:'./assets/mercedesAMGGT.jpg', reg:'06-2018', year:2018, sold:false},
 
@@ -60,10 +61,42 @@ app.cars = [
     {make:'mercedes', type:'Mercedes-Benz Sprinter', price:25000, miles:40000, hp:'180kw (220hp)', src:'./assets/mercedesSprinter.jpg', reg:'08-2021', year:2021}
 
     // {make:'mercedes', type:'Mercedes-Benz Sprinter', price:25000, miles:40000, hp:'180kw (220hp)', src:'./assets/mercedesSprinter.jpg', reg:'08-2021', year:2021}
-
 ];
 
-// Method to show login/search modal for mobile
+// Search Page
+app.searchPage=()=>{
+    const userSearch = document.getElementById('pageSearch');
+    const userSearchMobile = document.getElementById('mobileQForm');
+    app.desktopID = 'searchInput';
+    app.mobileID = 'mobileQ';
+    userSearch.addEventListener('submit',(e)=>{
+        e.preventDefault();
+        app.q = e.target.childNodes[3].value;
+        !app.q?alert("Enter a search term"):app.findQuery(`${app.desktopID}`);
+    })
+    userSearchMobile.addEventListener('submit',(e)=>{
+        e.preventDefault();
+        app.q = e.target.childNodes[3].value;
+        !app.q?alert("Enter a search term"):app.findQuery(`${app.mobileID}`);
+    })
+}
+
+// Method to search for users query
+app.findQuery = (inputID)=>{
+    let search = document.getElementById(`${app.q}`);
+    if(search){
+        search.scrollIntoView();
+        search.style.backgroundColor = "#FDFF47"
+    }
+    else{
+        let qInput = document.getElementById(`${inputID}`);
+        qInput.value="";
+        qInput.placeholder="No results found"; 
+    }
+
+}
+
+// Method to show login modal for mobile
 
 app.mobileSearch =()=>{
     const mobileLogin = document.querySelector('.mobileLogin');
@@ -91,6 +124,8 @@ app.showSlideOutMenu = ()=>{
     const middle = document.querySelector('.middle');
     const bottom = document.querySelector('.bottom');
     const slide = document.querySelector('.slideMenu')
+
+
     burger.addEventListener('click',()=>{
         if(!app.isOpen){
             middle.classList.add('sr-only');
@@ -98,8 +133,20 @@ app.showSlideOutMenu = ()=>{
             slide.classList.add('open');
             topp.classList.add('atOpenTop');
             bottom.classList.add('atBottom');
-            
             app.isOpen=true;
+            const allClicks= document.querySelectorAll('.slideMenu li');
+            allClicks.forEach(item=>{
+                item.addEventListener('click',(e)=>{
+                    if(e.isTrusted){
+                        middle.classList.remove('sr-only');
+                        slide.style.visibility='hidden';
+                        slide.classList.remove('open');
+                        topp.classList.remove('atOpenTop');
+                        bottom.classList.remove('atBottom');
+                        app.isOpen=false;
+                    }
+                })
+            })
         }
         else{
             middle.classList.remove('sr-only');
@@ -111,6 +158,8 @@ app.showSlideOutMenu = ()=>{
         }
     })
 }
+
+// Method to get user's selection in form 
 
 app.getSelections = () =>{
     const make = document.getElementById('make')
@@ -140,38 +189,27 @@ app.getSelections = () =>{
 
 }
 
+// Method that sets up submit event listner and checks data based on user's selections
 app.getSearchInputs = () =>{
     const searchResults = document.getElementById('searchCars')
     searchResults.addEventListener('submit',(e)=>{
         e.preventDefault();
-        if(app.make && app.price && app.mile && app.year){
-            let carZ = app.cars.filter(item=>{
-                return item.make==app.make && item.price<=parseInt(app.price) && item.miles<=parseInt(app.mile) && item.year.toString()==app.year;
+        if(app.make && app.make!=='all'){
+            app.carZ = app.cars.filter(item=>{
+                return item.make==app.make;
             })
-         
-            console.log(carZ);
         }
 
-        else if(!app.make && !app.price && !app.mile && !app.year){
-            alert('Please selecte at least on option!')
-         
+        else if(app.make==='all'){
+            app.carZ=[...app.cars];
         }
-
-        else if(app.make && app.mile && app.year){
-            let carZ = app.cars.filter(item=>{
-                return item.make==app.make && item.miles<=parseInt(app.miles) && item.year==parseInt(app.year);
-            })
-         
-            console.log(carZ);
-        }
-
-       
-        
-        
+    
+        app.displayCars(app.carZ);
+ 
     })
 }
 
-// Method to get user selection for price sorting
+// Method to get user selection for price low to high/high to low selection
 app.getPriceSort=()=>{
     const priceSort = document.getElementById('switchPrice')
     priceSort.addEventListener('change',(e)=>{
@@ -179,13 +217,14 @@ app.getPriceSort=()=>{
         app.sortPrice = e.target.value
         console.log(e.target.value);
         app.currentPage=1;
-        app.sortCars();
+        app.sortCars(app.carZ);
     })
 }
 
-app.paginate = () =>{
+// Method that will paginate app on intitialization
 
-  
+app.paginate = () =>{
+    
     app.listOfCars.innerHTML=``;
     let pages = Math.ceil(app.cars.length/6);
 
@@ -197,23 +236,37 @@ app.paginate = () =>{
 
     app.allPages = document.querySelectorAll('#pages button')
     app.allPages.forEach(item=>{
-        
-        item.addEventListener('click',(e)=>{
-            app.currentPage=e.target.textContent;
-      
-        app.sortCars();
-        })
-    })
+         item.addEventListener('click',(e)=>{
+            app.currentPage=e.target.textContent;    
+        app.sortCars(app.carZ);
+        },{once:true});
+    });
 }
   
+app.displayCars=(array)=>{
+    app.listOfCars.innerHTML='';
+    app.listOfPages.innerHTML=``;
+    let pages = Math.ceil(array.length/6);
 
+    for(let x=1;x<=pages;x++){
+        app.pageNum = document.createElement('button');
+        app.pageNum.textContent=`${x}`;
+        app.pageNum.setAttribute('id', `${x}`)
+        app.listOfPages.append(app.pageNum);
+    }
 
-    app.displayCars=(array)=>{
-        app.listOfCars.innerHTML='';
-
+    app.allPages = document.querySelectorAll('#pages button')
+    app.allPages.forEach((item, index)=>{
     
-       array.slice(6*(app.currentPage-1), Math.min(app.cars.length, 6 * app.currentPage)).forEach(item=>{
-        // Create New Elements for each property
+    item.addEventListener('click',(e)=>{
+        app.currentPage=e.target.textContent;
+        app.sortCars(array);
+        })
+    })
+
+    // Slice method will separte data into a max. of 6 items per page
+    array.slice(6*(app.currentPage-1), Math.min(array.length, 6 * app.currentPage)).forEach(item=>{
+    // Create New Elements for each property
         let list = document.createElement('li');
         if(!item.sold){
             list.innerHTML= 
@@ -273,16 +326,16 @@ app.paginate = () =>{
 
 
 
-// Method tro sort cars (price:low to high)
-app.sortCars=()=>{
+// Method to sort cars (price:low to high and high to low)
+app.sortCars=(array)=>{
     
     if(app.sortPrice==='default' || app.sortPrice==='low'){
-        app.lowHighArray = app.cars.sort((a,b)=>a.price-b.price);
+        app.lowHighArray = array.sort((a,b)=>a.price-b.price);
         app.displayCars(app.lowHighArray);
     }
     
     else{
-        app.highLowArray = app.cars.sort((a,b)=>b.price-a.price);
+        app.highLowArray = array.sort((a,b)=>b.price-a.price);
         app.displayCars(app.highLowArray);
     }
 
@@ -294,7 +347,8 @@ app.getCurrentDay = () =>{
     let days = document.querySelectorAll('.day');
     days.forEach(item=>{
         if (item.id===date){
-            item.style.color='#EA3546';
+            item.style.fontWeight="bolder";
+            item.style.color='white';
         }
     })
 }
@@ -303,34 +357,35 @@ app.getCurrentDay = () =>{
 app.logIn=()=>{
     let open = false
     const logInPage = document.querySelector('.logInBtn')
-    logInPage.addEventListener ('click',()=>{
-       const logInModal = document.querySelector('.logIn')
-       if(!open){
-        logInModal.style.visibility='visible';
-        open =true
-       }
 
-       else{
-        logInModal.style.visibility='hidden';
-        open=false;
-       }
+    logInPage.addEventListener ('click',()=>{
+        const logInModal = document.querySelector('.logIn')
+        if(!open){
+            logInModal.style.visibility='visible';
+            open =true
+        }
+
+        else{
+            logInModal.style.visibility='hidden';
+            open=false;
+        }
     })
 }
 
 // Method to open up query Search
 app.qSearch = ()=>{
     let open = false
-    const search = document.querySelector('.searchBtn')
+    const search = document.querySelector('.searchBtn');
     search.addEventListener('click',(e)=>{
-        console.log(e);
+    
        const openSearch = document.querySelector('.searchBar')
        if(!open){
-        openSearch.style.visibility='visible';
-        open =true
+            openSearch.style.visibility='visible';
+            open =true  
        }
        else{
-        openSearch.style.visibility='hidden';
-        open=false;
+            openSearch.style.visibility='hidden';
+            open=false;
        }
     })
 }
@@ -347,7 +402,7 @@ app.displayCount =()=>{
     }
         
     if(app.x<=app.sold){
-        headingSold.textContent=`${app.x}+`;
+        headingSold.textContent=`${app.x.toLocaleString("en-US")}+`;
     }
 
     if(app.x<=app.satisfaction){
@@ -355,7 +410,7 @@ app.displayCount =()=>{
     }
 
     if(app.x<=app.users){
-        headingUsers.textContent=`${app.x}+`;
+        headingUsers.textContent=`${app.x.toLocaleString("en-US")}+`;
     }
 
     else{
@@ -372,3 +427,5 @@ app.count=setInterval(()=>{
 
 // Intialize APP
 app.init();
+
+

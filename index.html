@@ -43,9 +43,11 @@
                         <li><a href="#contact">CONTACT</a></li>
                         <li><button class= "mobileLogin">Login</button></li>
                         <li class='subscribe'> 
-                            <label class='sr-only' for="userEmail"></label>
-                            <input type='email' id='userEmail' placeholder="">
-                            <button>Search</button>
+                            <form id='mobileQForm'>
+                                <label class='sr-only' for="mobileQ">search</label>
+                                <input type='search' id='mobileQ' placeholder="">
+                                <button type="submit">Search</button>
+                            </form>
                         </li>
                     </ul>
              
@@ -60,9 +62,11 @@
 
         <!-- Search bar that opens when magnifying glass is clicked -->
         <div class = "searchBar">
-            <label for="searchInput" class='sr-only'>search</label>
-            <input type='text' id='searchInput'>
-            <button><span class="fa-solid fa-magnifying-glass"></span></button><button class = "closeSearch"><span class="fa-solid fa-xmark"></span></button>
+            <form id="pageSearch">
+                <label for="searchInput" class='sr-only'>search</label>
+                <input type='search' id='searchInput'>
+                <button type="submit"><span class="fa-solid fa-magnifying-glass"></span></button>
+            </form>
         </div>
 
         <!-- Login menu for wen login is clicked -->
@@ -96,8 +100,6 @@
         </div>  
     </header>
     
-  
-
     <main id="main">
         <section class = 'searchCarsSection' id='carSearchSection'>
             <div class = 'wrapper'>
@@ -105,6 +107,7 @@
 
                     <select id="make">
                         <option>Chose Make</option>
+                        <option value="all">All</option>
                         <option value='bmw'>BMW</option>
                         <option value='mercedes'>Mercedes</option>
                         <option value='rangerover'>Rangerover</option>
@@ -113,7 +116,7 @@
                         <option value='lexus'>Lexus</option>
                         <option value='chevrolet'>Chevrolet</option>
                         <option value='audi'>Audi</option>
-                        <option vlaue='fiat'>Fiat</option>
+                        <option value='fiat'>Fiat</option>
                     </select>
 
                     <select id='year'>
