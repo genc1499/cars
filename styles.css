@@ -49,7 +49,6 @@ img{
     left: -1000px;
     top: 95px;
     z-index: 999;
-    /* background: white; */
     color: white;
 }
 
@@ -72,7 +71,7 @@ img{
     position: absolute;
     visibility: hidden;
     z-index: 10;
-    right: 60px;
+    right: 118px;
     top: 69px;
 }
 
@@ -210,31 +209,28 @@ img{
 
 .slideMenu{
     position:absolute;
-    width:0;
-    height:0;
+    width:100vw;
+    height:0vh;
     display:flex;
     flex-direction:column;
     background-color:#333232;
     right:0;
-    top:0;
+    top:-10px;
     visibility:hidden;
     transition:.3s linear;
-}
-.slideMenu ul{
-    display:flex;
-    flex-direction:column;
     align-items:center;
     justify-content:space-between;
-    margin:0 auto;
+    text-align: center;   
 }
+
 .slideMenu li{
-    margin:5%;
+    margin:6px;
     font-size:1.5rem;
     color:white;
 }
 .open{    
-    width:100vw;
-    height:100vh;
+    height:50vh; 
+    top:0;
 }
 
 .atOpenTop{
@@ -401,7 +397,7 @@ header{
     border:1px solid #99A1A6;
     color:#99A1A6;
     font-size:.7rem;
-    border-radius:2px;
+    border-radius:3px;
 }
 
 .searchCarsForm button{
@@ -447,19 +443,21 @@ select.firstMake{
 }
 .certainSelect select{
     background-color: white;
-    padding:5px;
+    padding:7px;
     font-size:.7rem;
     border-radius:3px;
     border:1px solid #99A1A6;
+    color:#99A1A6;
 }
 
 .certainSelect button{
     background-color:#EAEAEA;
-    padding:5px;
+    padding:7px;
     font-size:.6rem;
     border-radius:3px;
     border:1px solid #99A1A6;
     margin-right:5px;
+    color:#99A1A6;
 }
 
 .displayCars{
@@ -506,6 +504,11 @@ select.firstMake{
     padding:5px;
     font-size:.7rem;
     text-align:center;
+    transition:.3s linear;
+}
+
+.icons button:hover, .icons button.focus{
+    background-color:rgb(255, 255, 255,.7);
 }
 
 .carInfo{

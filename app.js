@@ -67,21 +67,28 @@ app.cars = [
     {make:'mercedes', type:'Mercedes-Benz Sprinter', price:25000, miles:40000, hp:'180kw (220hp)', src:'./assets/mercedesSprinter.jpg', reg:'08-2021', year:2021}
 
     // {make:'mercedes', type:'Mercedes-Benz Sprinter', price:25000, miles:40000, hp:'180kw (220hp)', src:'./assets/mercedesSprinter.jpg', reg:'08-2021', year:2021}
+   
 ];
 
 // Search Page
 app.searchPage=()=>{
     const userSearch = document.getElementById('pageSearch');
     const userSearchMobile = document.getElementById('mobileQForm');
+
+    // IDs for input elements for desktop and login, respectively
     app.desktopID = 'searchInput';
     app.mobileID = 'mobileQ';
     userSearch.addEventListener('submit',(e)=>{
         e.preventDefault();
+
+        // value of user's query
         app.q = e.target.childNodes[3].value;
         !app.q?alert("Enter a search term"):app.findQuery(`${app.desktopID}`);
     })
+
     userSearchMobile.addEventListener('submit',(e)=>{
         e.preventDefault();
+        // Close open slide out menu
         app.middle.classList.remove('sr-only');
         app.slide.style.visibility='hidden';
         app.slide.classList.remove('open');
@@ -112,14 +119,21 @@ app.findQuery = (inputID)=>{
 
 app.mobileSearch =()=>{
     const mobileLogin = document.querySelector('.mobileLogin');
-    // const mobileSearch = document.querySelector('.mobileSearch');
-    let isOpen=false
+    const closeLogIn = document.querySelector('#closeLogin');
+
+    let isOpen=false;
     mobileLogin.addEventListener('click',(e)=>{
         e.preventDefault();
         const openSearch = document.querySelector('.logIn')
         if(!isOpen){
             openSearch.style.visibility='visible';
-            isOpen=true
+            isOpen=true;
+             // Close login modal
+             closeLogIn.addEventListener('click',(e)=>{
+                e.preventDefault(e);
+                    openSearch.style.visibility='hidden';
+                    isOpen=false;
+                })
         }
        else{
             openSearch.style.visibility='hidden';
@@ -143,7 +157,7 @@ app.showSlideOutMenu = ()=>{
             const allClicks= document.querySelectorAll('.slideMenu li');
             allClicks.forEach(item=>{
                 item.addEventListener('click',(e)=>{
-                    console.log(e);
+             
     
                     // Any clicks will result in the menu closing 
                     if(e.isTrusted && e.target.parentNode.className==='slideClose'){
@@ -177,22 +191,22 @@ app.getSelections = () =>{
     const price = document.getElementById('maxPrice')
 
     make.addEventListener('change',(e)=>{
-        console.log(e.target.value)
+     
         app.make=e.target.value
     })
 
     year.addEventListener('change',(e)=>{
-        console.log(e.target.value);
+      
         app.year=e.target.value
     })
 
     miles.addEventListener('change',(e)=>{
-        console.log(e.target.value);
+      
         app.mile=e.target.value
     })
 
     price.addEventListener('change',(e)=>{
-        console.log(e.target.value);
+    
         app.price=e.target.value
     })
 
@@ -203,6 +217,9 @@ app.getSearchInputs = () =>{
     const searchResults = document.getElementById('searchCars')
     searchResults.addEventListener('submit',(e)=>{
         e.preventDefault();
+        if(!app.make){
+            alert("Select at least item")
+        }
         if(app.make && app.make!=='all'){
             app.carZ = app.cars.filter(item=>{
                 return item.make==app.make;
@@ -212,7 +229,7 @@ app.getSearchInputs = () =>{
         else if(app.make==='all'){
             app.carZ=[...app.cars];
         }
-    
+
         app.displayCars(app.carZ);
  
     })
@@ -223,8 +240,7 @@ app.getPriceSort=()=>{
     const priceSort = document.getElementById('switchPrice')
     priceSort.addEventListener('change',(e)=>{
         e.preventDefault();
-        app.sortPrice = e.target.value
-        console.log(e.target.value);
+        app.sortPrice = e.target.value;
         app.currentPage=1;
         app.sortCars(app.carZ);
     })
@@ -252,9 +268,14 @@ app.paginate = () =>{
     });
 }
   
+// Method to display cars
+
 app.displayCars=(array)=>{
     app.listOfCars.innerHTML='';
     app.listOfPages.innerHTML=``;
+    if(app.carZ.length===0){
+        alert("No vehicles match your search, try again!");
+    }
     let pages = Math.ceil(array.length/6);
 
     for(let x=1;x<=pages;x++){
@@ -274,9 +295,11 @@ app.displayCars=(array)=>{
     })
 
     // Slice method will separte data into a max. of 6 items per page
-    array.slice(6*(app.currentPage-1), Math.min(array.length, 6 * app.currentPage)).forEach(item=>{
-    // Create New Elements for each property
+    array.slice(6*(app.currentPage-1),(6 * app.currentPage)).forEach(item=>{
+    
         let list = document.createElement('li');
+
+        // Check sold property and add banner if aplicable
         if(!item.sold){
             list.innerHTML= 
             `<div class = "carCard">
@@ -333,8 +356,6 @@ app.displayCars=(array)=>{
     })
 }
 
-
-
 // Method to sort cars (price:low to high and high to low)
 app.sortCars=(array)=>{
     
@@ -377,10 +398,8 @@ app.logIn=()=>{
             // Close login modal
             closeLogIn.addEventListener('click',(e)=>{
                 e.preventDefault(e);
-                    console.log(e);
-                    logInModal.style.visibility='hidden';
-                    open=false;
-                
+                logInModal.style.visibility='hidden';
+                open=false;   
             })
         }
 
