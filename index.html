@@ -13,32 +13,42 @@
     <title>Cars</title>
 </head>
 <body>
-
+    <a href="#main" class="skip-link">Skip to main content.</a>
     <div class ='navContainer'>
         <div class='wrapper navFlex'>
             <h1>TEST</h1>
             <div class = 'navAndSearch'>
             <nav>
                 <ul class="mainMenu">
-                    <li><a href="./">HOME</a></li>
-                    <li><a href="./">FEATURES</a></li>
-                    <li><a href="./">PAGES</a></li>
-                    <li><a href="./">BLOG</a></li>
-                    <li><a href="./">CONTACT</a></li>
+                    <li><a href="#carSearchSection">HOME</a></li>
+                    <li><a href="#allCars">FEATURES</a></li>
+                    <li><a href="#specCount">PAGES</a></li>
+                    <li><a href="#latest/">BLOG</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
                 </ul>
              
                 <!-- Menu for hamburger menu -->
-                <div class="slideMenu">
-                    <ul>
-                        <li><a href="./"></a>HOME</li>
-                        <li><a href="./"></a>FEATURES</li>
-                        <li><a href="./"></a>PAGES</li>
-                        <li><a href="./"></a>BLOG</li>
-                        <li><a href="./"></a>CONTACT</li>
-                        <li><a href="./"></a>Login</li>
-                        <!-- <li><button class="searchBtn"><span class="fa-solid fa-magnifying-glass"></span></button></li> -->
+                <div class='burger'>
+                    <div class='top'></div>
+                    <div class='middle'></div>
+                    <div class='bottom'></div>
+                 </div>
+     
+             
+                    <ul class ="slideMenu">
+                        <li><a href="#carSearchSection">HOME</a></li>
+                        <li><a href="#allCars">FEATURES</a></li>
+                        <li><a href="#specCount">PAGES</a></li>
+                        <li><a href="#latest">BLOG</a></li>
+                        <li><a href="#contact">CONTACT</a></li>
+                        <li><button class= "mobileLogin">Login</button></li>
+                        <li class='subscribe'> 
+                            <label class='sr-only' for="userEmail"></label>
+                            <input type='email' id='userEmail' placeholder="">
+                            <button>Search</button>
+                        </li>
                     </ul>
-                </div>
+             
          
             </nav>
             <div class = "logInSearch">
@@ -79,14 +89,16 @@
 
     </div>
 
-        <header>
+    <header>
+        <div class='headerContainer wrapper'>
             <h2>Ferrari 458 Italia</h2>
             <p>$270,000 · 05-2016 · 0 miles · 419 kw (562hp) </p>
-        </header>
+        </div>  
+    </header>
     
   
 
-    <main>
+    <main id="main">
         <section class = 'searchCarsSection' id='carSearchSection'>
             <div class = 'wrapper'>
                 <form class = "searchCarsForm" id="searchCars">
@@ -104,7 +116,7 @@
                         <option vlaue='fiat'>Fiat</option>
                     </select>
 
-                    <select id='registration'>
+                    <select id='year'>
                         <option>Chose Year</option>
                         <option value="2016">2016</option>
                         <option value="2017">2017</option>
@@ -116,14 +128,15 @@
 
                     <select id = "maxPrice">
                         <option>Max Price($)</option>
-                        <option value="">10000</option>
-                        <option value="">20000</option>
-                        <option value="">30000</option>
-                        <option value="">40000</option>
-                        <option value="">50000</option>
+                        <option value="30000">10000</option>
+                        <option value="40000">20000</option>
+                        <option value="50000">30000</option>
+                        <option value="60000">40000</option>
+                        <option value="70000">50000</option>
+                        <option value="80000">80000</option>
                     </select>
 
-                    <select id = 'mileage'>
+                    <select id = 'miles'>
                         <option>Max Milages (miles)</option>
                         <option value="0">0</option>
                         <option value="10000">10000</option>
@@ -133,14 +146,14 @@
                         <option value="50000">50000</option>
                     </select>
 
-                    <button>SHOW RESUlTS</button>
+                    <button id = 'getResults'>SHOW RESUlTS</button>
 
                 </form>
             </div>
         </section>
 
         <!-- Cars displayed in this section -->
-        <section>
+        <section id ='allCars'>
             <div class ='wrapper'>
 
                 <button></button>
@@ -155,11 +168,16 @@
 
 
                 </ul>
-        </div>
+            </div>
+
+            <div id = "pages">
+
+            </div>
+        
 
         </section>
 
-        <section class= "specCount">
+        <section id = "specCount" class= "specCount">
             <div class = 'wrapper'>
                 <ul>
                     <li>
