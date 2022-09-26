@@ -81,7 +81,7 @@ app.searchPage=()=>{
     userSearch.addEventListener('submit',(e)=>{
         e.preventDefault();
 
-        // value of user's query
+        // value of user's querey
         app.q = e.target.childNodes[3].value;
         !app.q?alert("Enter a search term"):app.findQuery(`${app.desktopID}`);
     })
@@ -218,7 +218,7 @@ app.getSearchInputs = () =>{
     searchResults.addEventListener('submit',(e)=>{
         e.preventDefault();
         if(!app.make){
-            alert("Select at least item")
+            alert("Select at least one item")
         }
         if(app.make && app.make!=='all'){
             app.carZ = app.cars.filter(item=>{
@@ -264,6 +264,7 @@ app.paginate = () =>{
          item.addEventListener('click',(e)=>{
             app.currentPage=e.target.textContent;    
         app.sortCars(app.carZ);
+        // turn of event listener after init to stop the duplicating of event listeners
         },{once:true});
     });
 }

@@ -645,7 +645,7 @@ select.firstMake{
 .latestInfo{
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    box-shadow:0px 9px 17px -2px #99A1A6;
+    box-shadow: 0px 5px 4px -1px #99A1A6;
     position:relative;
 }
 
